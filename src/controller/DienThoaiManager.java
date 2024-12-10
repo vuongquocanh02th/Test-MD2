@@ -113,8 +113,11 @@ public class DienThoaiManager {
 
             String line;
             while ((line = reader.readLine()) != null) {
+                // Tách lấy ID từ chuỗi
                 String[] fields = line.split(",");
-                int id = Integer.parseInt(fields[0].trim());
+                String idField = fields[0].replaceAll("[^0-9]", ""); // Loại bỏ ký tự không phải số
+                int id = Integer.parseInt(idField); // Chuyển đổi ID thành số nguyên
+
                 if (id == idXoa) {
                     timThay = true;
                     System.out.println("Đã tìm thấy điện thoại có ID " + idXoa + ". Xóa thành công.");
@@ -123,8 +126,31 @@ public class DienThoaiManager {
                 }
             }
 
-            if (!timThay) {
-                System.out.println("Không tìm thấy điện thoại có ID " + idXoa + ".");
+            if (timThay) {
+                try {
+                    // Đảm bảo đóng file trước khi xóa
+                    reader.close();
+                    writer.close();
+
+                    // Xóa file gốc
+                    if (inputFile.delete()) {
+                        System.out.println("File gốc đã được xóa thành công.");
+                        // Đổi tên file tạm thành file gốc
+                        if (tempFile.renameTo(inputFile)) {
+                            System.out.println("File tạm đã được thay thế thành file gốc.");
+                        } else {
+                            System.out.println("Lỗi khi đổi tên file tạm.");
+                        }
+                    } else {
+                        System.out.println("Không thể xóa file gốc. Kiểm tra quyền truy cập.");
+                    }
+                } catch (IOException e) {
+                    System.out.println("Lỗi khi đóng file: " + e.getMessage());
+                }
+            } else {
+                System.out.println("ID không tồn tại. Không có thay đổi nào được thực hiện.");
+                // Xóa file tạm nếu không cần thiết
+                tempFile.delete();
             }
         } catch (IOException e) {
             System.out.println("Lỗi khi xóa: " + e.getMessage());

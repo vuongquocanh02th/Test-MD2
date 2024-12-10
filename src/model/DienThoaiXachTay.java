@@ -12,7 +12,7 @@ public class DienThoaiXachTay extends DienThoai {
 
     @Override
     public String toString() {
-        return String.format("ID: %d, Tên: %s, Giá: %.2f, Số lượng: %d, NSX: %s, Quốc gia: %s, Trạng thái: %s",
+        return String.format(" %d, %s, %.2f, %d, %s, %s, %s",
                 id, tenDienThoai, giaBan, soLuong, nhaSanXuat, quocGiaXachTay, trangThai);
     }
 }

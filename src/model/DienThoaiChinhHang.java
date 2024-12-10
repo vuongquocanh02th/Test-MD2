@@ -12,7 +12,7 @@ public class DienThoaiChinhHang extends DienThoai {
 
     @Override
     public String toString() {
-        return String.format("ID: %d, Tên: %s, Giá: %.2f, Số lượng: %d, NSX: %s, Bảo hành: %d ngày, Phạm vi: %s",
+        return String.format("%d, %s, %.2f, %d, %s, %d ngày, %s",
                 id, tenDienThoai, giaBan, soLuong, nhaSanXuat, thoiGianBaoHanh, phamViBaoHanh);
     }
 }
