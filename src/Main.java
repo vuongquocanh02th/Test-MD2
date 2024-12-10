@@ -1,4 +1,4 @@
-import controller.DienThoaiManager;
+import controller.PhoneManager;
 
 import java.util.Scanner;
 
@@ -21,34 +21,30 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    // Gọi hàm thêm mới
-                    DienThoaiManager.themMoiDienThoai();
+                    PhoneManager.themMoiDienThoai();
                     break;
                 case 2:
-                    // Gọi hàm xóa
                     System.out.print("Chọn loại điện thoại cần xóa (1: Chính hãng, 2: Xách tay): ");
                     int loaiXoa = scanner.nextInt();
                     scanner.nextLine();
                     String fileXoa = loaiXoa == 1 ? "chinhhang.csv" : "xachtay.csv";
-                    DienThoaiManager.xoaDienThoai(fileXoa);
+                    PhoneManager.xoaDienThoai(fileXoa);
                     break;
                 case 3:
-                    // Gọi hàm hiển thị danh sách
                     System.out.print("Chọn loại điện thoại muốn xem (1: Chính hãng, 2: Xách tay): ");
                     int loaiHienThi = scanner.nextInt();
                     scanner.nextLine();
                     String fileHienThi = loaiHienThi == 1 ? "chinhhang.csv" : "xachtay.csv";
-                    DienThoaiManager.hienThiDanhSach(fileHienThi);
+                    PhoneManager.hienThiDanhSach(fileHienThi);
                     break;
                 case 4:
-                    // Gọi hàm tìm kiếm
                     System.out.print("Nhập từ khóa tìm kiếm: ");
                     String keyword = scanner.nextLine();
                     System.out.print("Tìm trong (1: Chính hãng, 2: Xách tay): ");
                     int loaiTimKiem = scanner.nextInt();
                     scanner.nextLine();
                     String fileTimKiem = loaiTimKiem == 1 ? "chinhhang.csv" : "xachtay.csv";
-                    DienThoaiManager.timKiem(fileTimKiem, keyword);
+                    PhoneManager.timKiem(fileTimKiem, keyword);
                     break;
                 case 5:
                     running = false;

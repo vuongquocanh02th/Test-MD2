@@ -1,10 +1,10 @@
 package model;
 
-public class DienThoaiChinhHang extends DienThoai {
+public class GenuinePhone extends Phone {
     private int thoiGianBaoHanh;
     private String phamViBaoHanh;
 
-    public DienThoaiChinhHang(int id, String tenDienThoai, double giaBan, int soLuong, String nhaSanXuat, int thoiGianBaoHanh, String phamViBaoHanh) {
+    public GenuinePhone(int id, String tenDienThoai, double giaBan, int soLuong, String nhaSanXuat, int thoiGianBaoHanh, String phamViBaoHanh) {
         super(id, tenDienThoai, giaBan, soLuong, nhaSanXuat);
         this.thoiGianBaoHanh = thoiGianBaoHanh;
         this.phamViBaoHanh = phamViBaoHanh;
