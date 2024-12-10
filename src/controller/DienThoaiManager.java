@@ -135,5 +135,28 @@ public class DienThoaiManager {
             System.out.println("Cập nhật danh sách thành công!");
         }
     }
+    public static void hienThiDanhSach(String fileName) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.out.println("Lỗi khi đọc file: " + e.getMessage());
+        }
+    }
+    public static void timKiem(String fileName, String keyword) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.contains(keyword)) {
+                    System.out.println(line);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Lỗi khi tìm kiếm: " + e.getMessage());
+        }
+    }
+   
 }
 
